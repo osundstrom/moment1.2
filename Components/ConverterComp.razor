@@ -2,7 +2,7 @@
 <!-- Ändrar namespace då jag döpte till 1.2-->
 @namespace moment12.Components
 
-
+<!-- form som main Kontakta välja vilken enhettyp vid inpuit-->
 <div class="formDiv">
 <form>
     <select name="unitType" id="unitType" @bind="selectedType">
@@ -11,18 +11,20 @@
          <option value="kmperh"> Km/h</option>
     </select>
 
+    <!-- uppdaterar på input och itne efter main klickat/tyckt enter-->
     <input type="number" id="toCalc" @bind="convertCalc" @bind:event="oninput"/>
 </form>
 
+   
  <div class="answearDiv">   
-        @if (selectedType == "meter") {
+        @if (selectedType == "meter") { <!--om man valt meter till Feet-->
             <p>@ConvertMeter(convertCalc) Feet</p>
         }
-        else if (selectedType == "kmperh") {
+        else if (selectedType == "kmperh") { <!--om man valt km/h till miles/h-->
             <p>@Convertkmperh(convertCalc) Miles/h</p>
         }
         else{
-            <p>0</p>
+            <p>0</p>  <!--om man ej ändrat,--om har standarvärdet-->
         }
     </div>
  </div>
@@ -30,15 +32,15 @@
 
 @code {
     private double convertCalc = 0;
-    private string selectedType = "choose";
+    private string selectedType = "choose"; <!--om inställd på standardvärde choose-->
 
    
-
+    <!--omvandlar meter till feet-->
     private double ConvertMeter(double meter){
         return Math.Round(meter * 3.2808, 2);
     }
 
- 
+    <!--omvandlar km/h till miles/h-->
     private double Convertkmperh(double kmh){
         return Math.Round(kmh * 0.6214, 2); 
     }

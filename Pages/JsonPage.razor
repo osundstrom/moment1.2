@@ -8,11 +8,13 @@
     <hr>
     <div class="divHttp">
     <h3>JSON - Kurser</h3>
-
+     <!--Om coursesLi är skilt från null-->
     @if (courses != null){
         <div class="gridDiv">
-        @foreach (SchemaCourse course in courses)
-        {
+
+             <!--För varje kurs-->
+        @foreach (SchemaCourse course in courses){
+             <!--Hämtar kurs kod, kurs namn osv-->
             <ul id="coursesUl">
             <li id="coursesLi">@course.code, (@course.progression)</li>
             <li id="coursesLi" >@course.name</li>
@@ -25,14 +27,16 @@
 
 @code {
 
+     <!--tom lista-->
      private List<SchemaCourse>? courses;
 
+    <!--Hämtar från JSON fil (courses.json)-->
     protected override async Task OnInitializedAsync() {
         courses = await Http.GetFromJsonAsync<List<SchemaCourse>>("courses.json");
     }
 
    
-    
+     <!--Definerar schema för en kurs-->
     public class SchemaCourse {
 
     public string? code { set; get; }
