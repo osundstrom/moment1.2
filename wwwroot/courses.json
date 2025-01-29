@@ -1,0 +1,43 @@
+
+  [
+    {
+      "code": "DT057G",
+      "name": "Webbutveckling I",
+      "progression": "A"
+    },
+    {
+        "code": "DT068G",
+        "name": "Webbanvändbarhet",
+        "progression": "B"
+      },
+      {
+        "code": "DT084G",
+        "name": "Intruduktion till JavaScript",
+        "progression": "A"
+      },
+      {
+        "code": "DT200G",
+        "name": "Grafisk teknik för webb",
+        "progression": "A"
+      },
+      {
+        "code": "DT071G",
+        "name": "Programmering i C#.NET",
+        "progression": "A"
+      },
+      {
+        "code": "IK060G",
+        "name": "Projektledning",
+        "progression": "A"
+      },
+      {
+        "code": "DT003G",
+        "name": "Databaser",
+        "progression": "A"
+      },
+      {
+        "code": "DT208G",
+        "name": "Programmering i TypeScript",
+        "progression": "B"
+      }
+  ]

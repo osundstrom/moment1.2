@@ -1,0 +1,44 @@
+@page "/Json"
+@inject HttpClient Http
+
+<PageTitle>JSON</PageTitle>
+
+<section>
+    <h1>DT191G - Moment 1.2</h1>
+    <hr>
+    <div class="divHttp">
+    <h3>JSON - Kurser</h3>
+
+    @if (courses != null){
+        <div class="gridDiv">
+        @foreach (SchemaCourse course in courses)
+        {
+            <ul id="coursesUl">
+            <li id="coursesLi">@course.code, (@course.progression)</li>
+            <li id="coursesLi" >@course.name</li>
+            </ul>
+        }
+    </div>
+    }
+    </div>
+</section>
+
+@code {
+
+     private List<SchemaCourse>? courses;
+
+    protected override async Task OnInitializedAsync() {
+        courses = await Http.GetFromJsonAsync<List<SchemaCourse>>("courses.json");
+    }
+
+   
+    
+    public class SchemaCourse {
+
+    public string? code { set; get; }
+    public string? name { set; get; }
+     public string? progression { set; get; }
+
+}
+}
+
